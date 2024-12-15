@@ -1,0 +1,24 @@
+for all u in V
+    cost(u) = infinity
+    prev(u) = null
+cost(u0) = 0
+
+H = makequeue(V)
+while(!H.empty()):
+    v = deletemin(H)
+    for each {v, z} in E:
+        if cost(z) > w(v, z):
+            cost(z) = w(v, z)
+            prev(z) = v
+            decreasekey(H, z)
+
+Time complexity: O(n^2) - if you use Adjancency matrix
+Time complexity: O(nlogn + mlogn) - binary heap and adjancency list
+
+Feature	                         Kruskal's Algorithm	                       Prim's Algorithm
+Approach	               Adds edges in increasing weight order	   Adds edges by growing a single component
+Focus	                        Works edge-by-edge	                    Works vertex-by-vertex
+Graph Representation	           Edge list	                             Adjacency list/matrix
+Data Structure                   Used	Union-Find	                           Priority Queue
+Best For	                         Sparse graphs                              Dense graphs
+Handles Disconnected Graphs?	    Yes (produces a forest)	                     No

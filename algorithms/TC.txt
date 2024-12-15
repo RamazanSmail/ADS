@@ -1,0 +1,82 @@
+Rabin-Karp Algorithm
+
+Best Case O(n+m):
+The hash function is well-designed, and there are few or no collisions.
+The algorithm performs n−m+1 hash recalculations and only a few comparisons.
+Worst Case (O(nm)):
+Many collisions occur (different substrings have the same hash value).
+Each collision leads to a character-by-character comparison.
+
+
+The KMP algorithm:
+
+Complexity
+Preprocessing (LPS Table): O(m), where 
+m is the length of the pattern.
+Search: O(n), where n is the length of the text.
+Total Time Complexity: O(n+m)
+
+
+Adjancency List:
+
+If m is the number of edges in a graph, then the time complexity of building 
+such a list is O(m). The space complexity is O(n + m). 
+But, in the worst case of a complete graph, which contains {n \ 2} edges, the
+time and space complexities reduce to O(n^2).
+
+Adjancency Matrix:
+
+Assuming the graph has n vertices, the time complexity to build such a matrix 
+is O(n^2). The space complexity is also O(n^2).
+
+
+BFS:
+O(n+m)
+
+
+DFS:
+O(m+n)
+
+
+Topoligical sort:
+O(n+m)
+
+
+Prim's Algorithm:
+
+Worst case (dense graph): O(n^2+m),O(m log n), where E is the number of edges and 
+V is the number of vertices.
+Best case (sparse graph, like a tree):priority queue O(m log n), since the number 
+of edges is much smaller.
+Implementation with adjancecy matrix T.C: O(n^3)
+for adjancency list implementation:O(m+n)*O(Logn) which is O((m+n)*Logn) = O(mLogn)
+
+
+Kruskal's Algorithm:
+
+Worst and Best Case: O(E log E), where E is the number of edges (due to sorting the edges).
+Union and Find operations with optimizations are O(α(V)), where α is the very 
+slow-growing inverse Ackermann function, 
+almost constant in practice.
+
+
+Dijkstra's algorithm:
+
+O(m+n^2)
+O(mlogn) implementation with set or implementation with priority queue
+
+
+Floyd Algorithm:
+
+Time Complexity: O(n^3), 
+where V is the number of vertices in the graph and we run three nested loops each of size V
+Auxiliary Space: O(n^2), 
+to create a 2-D matrix in order to store the shortest distance for each pair of nodes.
+
+
+Ford Bellman Algorithm:
+
+Best Case: O(m), 
+when distance array after 1st and 2nd relaxation are same , we can simply stop further processing.
+Average Case: O(n*m)
+Worst Case: O(n*m)

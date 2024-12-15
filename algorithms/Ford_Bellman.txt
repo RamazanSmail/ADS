@@ -1,0 +1,21 @@
+BELLMAN-FORD(graph, source):
+    // Initialize distances
+    d = {}
+    for each vertex v in graph:
+        d[v] = infinity
+    d[s] = 0
+
+    
+    for i in range(1, V):
+        for each edge (u, v, w) in graph:
+            if d[u] + w < d[v]:
+                d[v] = d[u] + w
+
+    // Check for negative weight cycles
+    for each edge (u, v, w) in graph:
+        if d[u] + w < d[v]:
+            return "Negative weight cycle detected"
+
+    return d
+
+Time complexity: O(n * m)

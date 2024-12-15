@@ -1,0 +1,22 @@
+dfs(v, ts):   //vertex and topsort stack
+    was[v] = 1  //отмечаем начальную вершину посещенной
+    for(v, u):  //ищем соседей начальной вершины
+        if(!was[u]):    //если сосед не посещен
+            dfs(u, ts)  //запускаем топ сорт уже от соседа
+    ts.push_back(v)     //добавляем в конец вектора вершину
+
+int main():
+    for i in range(1, n):
+        if(!was[i]):
+            dfs(i, ts):
+    reverse(ts)       
+
+
+
+all this vertexes points down
+6   4   8            
+ \ / \ / \
+  1   3   |       ts: 5, 7, 1, 2, 3, 6, 8  then we reverse
+ / \ / \  /
+5   7   2
+Time complexity: O(V + E)

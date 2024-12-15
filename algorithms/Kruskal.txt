@@ -1,0 +1,20 @@
+Сначало мы должны выбрать наименьшее ребро в графе, который не создает цикл. Важным условием является
+то что мы не можем объединять вершины которые уже лежат в одном дереве. Мы делаем это пока не останется
+ни одной вершины которая не входит в одно дерево. В следствии мы получаем Minimum Spanning Tree (MST).
+A Minimum Spanning Tree (MST) is a spanning tree that has the minimum total weight of edges among all 
+possible spanning trees of the graph.
+
+
+for all u in V:
+    makeset(u)
+
+X = {}  //edge list of MST
+Sort edges E by weight
+for all edges {u, v} in E, in increasing order of weight:
+    if find(u) != find(v):
+        add edge {u, v} to X
+        union(u, v)
+
+
+Time complexity: O(n^2 + mlogn) - basic case
+Time complexity: O(nlogn + mlogn) - improve

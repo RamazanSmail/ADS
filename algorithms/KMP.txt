@@ -1,0 +1,29 @@
+BUILD_PARTIAL_MATCH_TABLE(pattern):
+    m = length(pattern)
+    table = [0] * m
+    j = 0
+
+    for i from 1 to m - 1:
+        while j > 0 and pattern[j] != pattern[i]:
+            j = table[j - 1]
+        if pattern[j] == pattern[i]:
+            j += 1
+        table[i] = j
+
+    return table
+
+KMP(text, pattern):
+    m = length(pattern)
+    n = length(text)
+    table = BUILD_PARTIAL_MATCH_TABLE(pattern)
+    j = 0
+
+    for i from 0 to n - 1:
+        while j > 0 and pattern[j] != text[i]:
+            j = table[j - 1]
+        if pattern[j] == text[i]:
+            j += 1
+        if j == m:  // Full match
+            return i - m + 1
+
+    return -1  // No match found
